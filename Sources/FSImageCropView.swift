@@ -171,15 +171,31 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
             
             contentsFrame.origin.y = 0.0
         }
-        
-        imageView.frame = contentsFrame
-        
+
+		if imageView.frame.width < boundsSize.width {
+			let ratio = boundsSize.width / imageView.frame.width
+
+			imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: boundsSize.width, height: imageView.frame.height * ratio))
+		}
+
+		imageView.frame = contentsFrame
+
+		if imageView.frame.width < boundsSize.width {
+			let ratio = boundsSize.width / imageView.frame.width
+
+			imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: boundsSize.width, height: imageView.frame.height * ratio))
+		}
+
+		if imageView.frame.height < boundsSize.height {
+			let ratio = boundsSize.height / imageView.frame.height
+
+			imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: imageView.frame.width * ratio, height: boundsSize.height))
+		}
     }
     
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
         
         self.contentSize = CGSize(width: imageView.frame.width + 1, height: imageView.frame.height + 1)
-		self.contentMode = .ScaleAspectFill
     }
     
 }
