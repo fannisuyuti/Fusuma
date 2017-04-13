@@ -179,6 +179,7 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
         
         self.contentSize = CGSize(width: imageView.frame.width + 1, height: imageView.frame.height + 1)
+		self.contentMode = .ScaleAspectFill
     }
     
 }
