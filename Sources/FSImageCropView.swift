@@ -172,12 +172,6 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
             contentsFrame.origin.y = 0.0
         }
 
-		if imageView.frame.width < boundsSize.width {
-			let ratio = boundsSize.width / imageView.frame.width
-
-			imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: boundsSize.width, height: imageView.frame.height * ratio))
-		}
-
 		imageView.frame = contentsFrame
 
 		if imageView.frame.width < boundsSize.width {
