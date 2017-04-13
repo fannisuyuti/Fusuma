@@ -128,8 +128,8 @@ final class FSImageCropView: UIScrollView, UIScrollViewDelegate {
         
         imageView.frame = CGRect(origin: CGPointZero, size: CGSizeZero)
         
-        self.maximumZoomScale = 2.0
-        self.minimumZoomScale = 0.8
+        self.maximumZoomScale = 5.0
+        self.minimumZoomScale = 0.1
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator   = false
         self.bouncesZoom = true
